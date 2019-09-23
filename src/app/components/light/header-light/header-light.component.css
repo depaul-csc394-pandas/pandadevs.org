@@ -1,0 +1,207 @@
+#g-spinner.loading>.circle.c1,
+#g-spinner.loading>.circle.c2,
+#g-spinner.loading>.circle.c3,
+#g-spinner.loading>.circle.c4 {
+    background: var(--theme-main-color);
+}
+
+header {
+    background: #ffffff;
+    transition: none;
+}
+
+.logo_icon {
+    width: 60px;
+}
+
+header a,
+.navbar-nav li a.active {
+    color: var(--theme-main-color);
+}
+
+.logo_light {
+    display: inline;
+    height: 60px;
+}
+
+@media only screen and (max-width: 991px) {
+    header .container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .navbar-brand .logo_light {
+        max-width: 100%;
+        margin-top: 0;
+        margin-left: 25px;
+    }
+
+    .navbar {
+        display: block;
+    }
+
+    .menu_bar {
+        display: block;
+        width: auto;
+        position: absolute;
+        top: 0;
+        z-index: 999999 !important;
+        height: 80px;
+        width: 70px;
+    }
+
+    .menu_bar .bt-menu {
+        padding: 0;
+        overflow: hidden;
+        width: 30px;
+        height: 20px;
+        margin: 11px 15px;
+        z-index: 99999999 !important;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+    }
+
+    .menu_bar .bt-menu span {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 2px;
+        border-radius: 10px;
+        position: absolute;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .4s ease-in-out;
+        transition: .4s ease-in-out;
+        color: var(--theme-main-color);
+        background-color: var(--theme-main-color);
+    }
+
+    .menu_bar .bt-menu span:nth-child(1) {
+        top: 0;
+    }
+
+    .menu_bar .bt-menu span:nth-child(2) {
+        top: 9px;
+    }
+
+    .menu_bar .bt-menu span:nth-child(3) {
+        top: 18px;
+    }
+
+    .menu_bar .bt-menu.open span:nth-child(1) {
+        top: 9px;
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+    }
+
+    .menu_bar .bt-menu.open span:nth-child(2) {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        left: -60px;
+    }
+
+    .menu_bar .bt-menu.open span:nth-child(3) {
+        top: 9px;
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+    }
+
+    header {
+        height: auto;
+        padding: 10px 0 !important;
+    }
+
+    header #menu_mobile {
+        width: 75%;
+        height: calc(100% - 80px);
+        position: fixed;
+        right: 100%;
+        margin: 10px 0 0 0;
+        background: #fff;
+        /*overflow: scroll;*/
+        overflow-x: auto;
+    }
+
+    header #menu_mobile ul li {
+        display: block;
+        border-bottom: 1px solid rgba(45, 45, 45, 0.1);
+    }
+
+    header #menu_mobile ul li a {
+        display: block;
+    }
+
+    header.nav-fixed #menu_mobile {
+        margin: 6px 0 0 0;
+        position: fixed;
+    }
+
+    .overlay {
+        background: rgb(0, 0, 0);
+        opacity: 0.7;
+        filter: Alpha(Opacity=70);
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 100;
+    }
+
+    .navbar-expand-lg .navbar-nav>li {
+        padding: 0 15px !important;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: 16px !important;
+        padding: 15px !important;
+        text-align: left !important;
+    }
+
+    /*Scrollbar css*/
+    header::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    header::-webkit-scrollbar-track {
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        background: #ddd;
+    }
+
+    header::-webkit-scrollbar-thumb {
+        background: #FAFAFA;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    header::-webkit-scrollbar-thumb:hover {
+        background: #FAFAFA;
+    }
+
+    header::-webkit-scrollbar-corner {}
+}
+
+@media only screen and (max-width: 340px) {
+    header {
+        height: 90px;
+    }
+
+    .navbar-brand .logo_light {
+        margin: 15px 0 0 70px;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 240px) {
+    .navbar-bran .logo_light {
+        margin: 15px 0 0 60px;
+        width: 70%;
+    }
+}

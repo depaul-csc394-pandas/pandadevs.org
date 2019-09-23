@@ -1,0 +1,43 @@
+@import './variables.css';
+.web-button,
+.-web-btn,
+.-web-btn:hover,
+.-web-btn-default,
+.-web-btn-default:hover,
+.-web-btn-border,
+.-web-btn-border:hover {
+	background: var(--main-color-theme);
+	border: none !important;
+}
+.-web-btn-default::before,
+.-web-btn-default.active.focus,
+.-web-btn-default.active:focus,
+.-web-btn-default.active:hover,
+.-web-btn-default:active:focus,
+.-web-btn-default:active:hover,
+.-web-btn-default.active,
+.-web-btn-default:active,
+.-web-btn-default.focus:active,
+.-web-btn-default:focus,
+.-web-btn.active:not(:disabled):not(.disabled),
+.-web-btn:active:not(:disabled):not(.disabled),
+.social_team a::before {
+	background: var(--main-color-theme);
+}
+.-web-btn-default:hover:before {
+	opacity: 0;
+}
+.-web-btn span {
+	color: #6e6e91;
+}
+.roadmap .owl-nav i {
+	background-color: var(--main-color-theme);
+}
+.roadmap .owl-nav .disabled i {
+	background-color: var(--main-color-theme);
+	color: #b1b1b1;
+}
+.roadmap .owl-prev i:before,
+.roadmap .owl-next i:before {
+	padding-top: 3px;
+}

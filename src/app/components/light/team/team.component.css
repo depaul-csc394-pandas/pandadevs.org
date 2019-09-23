@@ -1,0 +1,42 @@
+@import '../../../../assets/color/variables.css';
+.title_dark span {
+    color: var(--theme-main-color);
+  }
+  
+  .gradient_box {
+    background: var(--theme-main-color);
+  }
+  
+  .social_team a {
+    background-color: var(--theme-main-color);
+    padding-top: 7px;
+  }
+  
+  .social_team a:before, .social_team a:hover, .social_team a:active, .social_team a:focus, .social_team a:visited {
+    background-color: var(--theme-main-color);
+    background: var(--theme-main-color);
+  }
+  
+  .social_team li {
+    margin: 0 5px;
+  }
+  
+  .social_single_team {
+    margin-bottom: 20px;
+  }
+  
+  .social_single_team li a {
+    color: var(--theme-main-color);
+  }
+  
+  .mfp-bg {
+    background: #f5f8ff;
+    background-image: none;
+    opacity: 0.8;
+  }
+  
+  @media only screen and (max-width: 480px) {
+  .social_team a {
+      padding-top: 9px;
+  }
+  }

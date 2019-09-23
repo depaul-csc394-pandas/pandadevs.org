@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+.panel-container {
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    width: 100%;
+}
+
+.panel-fixed {
+    top: -40;
+}
+
+.panel-icon-toggle {
+    width: 20px;
+    fill: #ffffff;
+    transform: rotate(-180deg);
+}
+
+.panel-icon-rotate {
+    transform: rotate(-180deg);
+    transition: .3s;
+}
+
+.success {
+    color: #28a745;
+}
+
+.error {
+    color: #dc3545;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    outline: none;
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    border: 0;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    font-size: 55px;
+    color: gray;
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 55px;
+    color: gray;
+}
+
+thead {
+    background: #e6e6e6;
+}
+
+.p-head-table {
+    margin-top: 10px;
+}
+
+.table th {
+    border-top: none;
+}
+
+.title {
+    font-weight: 300;
+}
+
+.back-link {
+    color: #1a1a1a;
+
+}
+
+.back-link:hover {
+    color: #6c757d;
+}
+
+.img-table {
+    width: 24px;
+}
+
+.md-td {
+    height: 50px;
+    width: 170px;
+    min-width: 170px;
+    max-width: 170;
+}
+
+.md-td-short {
+    height: 50px;
+    width: 130px;
+    min-width: 130px;
+    max-width: 130px;
+}
+
+.normal-section {
+    padding: 215px 0 !important;
+}
+
+.number {
+    font-family: 'Roboto', sans-serif;
+}
