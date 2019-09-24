@@ -27,7 +27,7 @@ export class ApiService {
   }
 
   putMatch( matchID, team1, team2, team1score, team2score) {
-    return this.http.post(`${this.endpoint}${this.apicmd}/update?` +
+    return this.http.get(`${this.endpoint}${this.apicmd}/update?` +
       `matchID=${matchID}&team1=${team1}&team2=${team2}&team1score=${team1score}&team2score=${team2score}`,
       httpOptions);
   }

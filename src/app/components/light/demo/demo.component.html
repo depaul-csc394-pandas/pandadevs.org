@@ -14,43 +14,50 @@
       <div class="col-lg-3 col-md-6 col-sm-6">
       <input [(ngModel)]="team_2_score" id="Team_2_Score" type="text" placeholder="Team 2 Score"/>
     </div>
-      <button type="submit" (click)="submit()" >Submit</button>
+      <button type= "submit" (click)="submit()" >Submit</button>
     </div>
-
-    Added: {{response|json}}
 
     <div id="present_result">
     </div>
   </div>
-  <div class="table-responsive">
+  <div class="row">
+  <div class="table-responsive col-md-12 justify-content-center pg-card-body p-3">
     <table class="table table-hover font-weight-light">
       <thead>
       <tr class="pg-color-main">
         <th>Match #</th>
-      <!--  <th>Team 1</th>
+        <th>Team 1</th>
         <th>Team 1 Score</th>
         <th>Team 2 Score</th>
-        <th>Team 2</th>-->
+        <th>Team 2</th>
+        <th>Modify</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let row of matches">
         <td>
-          <a>{{(row|json)}}</a>
+          <p>{{(row?.matchID)}}</p>
         </td>
-       <!-- <td>
-          <a [queryParams]= "{address: row?.team1}"
-             title="{{row?.team1}}">{{row?.team1}}</a>
+        <td>
+          <p>{{(row?.team1)}}</p>
         </td>
-        <td>{{row?.transactions.length}}</td>
-        <td><a [queryParams]="{team1core: row?.team1Score}"
-               title="{{row?.team1Score}}">{{row?.team1Score}}</a></td>
-        <td><a [queryParams]="{team2core: row?.team1Score}"
-               title="{{row?.team2Score}}">{{row?.team1Score}}</a></td>
-        <td>{{row?.timestamp | date : 'yyyy-MM-dd HH:mm:ss'}}</td>-->
+        <td>
+          <p>{{(row?.team1Score)}}</p>
+        </td>
+        <td>
+          <p>{{(row?.team2Score)}}</p>
+        </td>
+        <td>
+          <p>{{(row?.team2)}}</p>
+        </td>
+        <td>
+          <button (click)="removeSelected(row?.matchID)" > Delete </button>
+        </td>
+
       </tr>
       </tbody>
     </table>
+  </div>
   </div>
 </section>
 <!-- END SECTION STORYBOARD -->

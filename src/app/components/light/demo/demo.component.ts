@@ -34,7 +34,19 @@ export class DemoComponent implements OnInit {
     this.error = '';
     await this.api.postMatch(this.team_1, this.team_2, this.team_1_score, this.team_2_score).toPromise().then((response: any) => {
       this.response = JSON.parse(JSON.stringify(response));
+      this.refeshTable();
+      return response;
+    }, error => {
+      this.error = 'Sorry, an error occurred.';
+    });
+  }
 
+  async removeSelected(matchID) {
+    this.error = '';
+    await this.api.deleteMatch(matchID).toPromise().then((response: any) => {
+      this.response = JSON.parse(JSON.stringify(response));
+      this.refeshTable();
+      this.refeshTable();
       return response;
     }, error => {
       this.error = 'Sorry, an error occurred.';
@@ -43,11 +55,15 @@ export class DemoComponent implements OnInit {
 
   async refeshTable() {
     this.error = '';
-    await this.api.getMatches().toPromise().then((response: any) => {
+    await this.api.getMatches().toPromise().then((response: Response) => {
       this.matches = [];
-      const resp = JSON.parse(JSON.stringify(response));
-      for (let responseKey in resp) {
-        this.matches.push(responseKey);
+      const resp: JSON[] = JSON.parse(JSON.stringify(response));
+      console.log(resp);
+      let i = resp.length - 1;
+      while (i >= 0) {
+        console.log(resp[i]);
+        this.matches.push(resp[i]);
+        i--;
       }
       return this.matches;
     }, error => {
