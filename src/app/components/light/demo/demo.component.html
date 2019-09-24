@@ -17,10 +17,40 @@
       <button type="submit" (click)="submit()" >Submit</button>
     </div>
 
-    <p>{{response.toString()}}</p>
+    Added: {{response|json}}
 
     <div id="present_result">
     </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover font-weight-light">
+      <thead>
+      <tr class="pg-color-main">
+        <th>Match #</th>
+      <!--  <th>Team 1</th>
+        <th>Team 1 Score</th>
+        <th>Team 2 Score</th>
+        <th>Team 2</th>-->
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of matches">
+        <td>
+          <a>{{(row|json)}}</a>
+        </td>
+       <!-- <td>
+          <a [queryParams]= "{address: row?.team1}"
+             title="{{row?.team1}}">{{row?.team1}}</a>
+        </td>
+        <td>{{row?.transactions.length}}</td>
+        <td><a [queryParams]="{team1core: row?.team1Score}"
+               title="{{row?.team1Score}}">{{row?.team1Score}}</a></td>
+        <td><a [queryParams]="{team2core: row?.team1Score}"
+               title="{{row?.team2Score}}">{{row?.team1Score}}</a></td>
+        <td>{{row?.timestamp | date : 'yyyy-MM-dd HH:mm:ss'}}</td>-->
+      </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 <!-- END SECTION STORYBOARD -->

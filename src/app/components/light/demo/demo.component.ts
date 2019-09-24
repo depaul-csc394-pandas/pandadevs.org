@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {ApiService} from '../../../services/api.service';
 declare var $: any;
 
 interface APIResponse {
@@ -15,26 +16,42 @@ interface APIResponse {
 })
 export class DemoComponent implements OnInit {
 
-  team_1; team_2; team_1_score; team_2_score; error = ''; response;
+  public blocks: any = [];
+  team_1; team_2; team_1_score; team_2_score; error = '';
+  matches = null;
+  response = JSON.parse('{ "matchID": "", "team1": "", "team2": "", "team1Score": "", "team2Score": "" }');
 
-  public apiEndPoint = 'http://pandadevs.org:8080/api/matches?';
+  public apiEndPoint = 'http://localhost:8080/api/matches';
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient, public api: ApiService) {}
 
 
   ngOnInit() {
+    this.refeshTable();
   }
 
-  submit() {
+  async submit() {
     this.error = '';
-    const params = new HttpParams().set('team1', this.team_1).set('team2', this.team_2).set('team1score', this.team_1_score).set('team2score', this.team_2_score);
-    const apiURL = this.apiEndPoint + params.toString();
-    console.log(apiURL);
-    this.http.post(apiURL, '').subscribe(response => {
-      this.response = response;
+    await this.api.postMatch(this.team_1, this.team_2, this.team_1_score, this.team_2_score).toPromise().then((response: any) => {
+      this.response = JSON.parse(JSON.stringify(response));
+
       return response;
     }, error => {
-      this.error = 'Sorry, an MailChimp error occurred.';
+      this.error = 'Sorry, an error occurred.';
+    });
+  }
+
+  async refeshTable() {
+    this.error = '';
+    await this.api.getMatches().toPromise().then((response: any) => {
+      this.matches = [];
+      const resp = JSON.parse(JSON.stringify(response));
+      for (let responseKey in resp) {
+        this.matches.push(responseKey);
+      }
+      return this.matches;
+    }, error => {
+      this.error = 'Sorry, an error occurred.';
     });
   }
 }

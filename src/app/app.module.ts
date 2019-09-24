@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
 import { PersistanceService } from './services/persistant-service';
+import { ApiService } from './services/api.service';
 
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
@@ -40,7 +41,7 @@ import { TeamComponent } from './components/light/team/team.component';
     AppRoutingModule,
     InViewportModule,
   ],
-  providers: [PersistanceService],
+  providers: [PersistanceService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
