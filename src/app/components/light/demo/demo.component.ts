@@ -46,7 +46,6 @@ export class DemoComponent implements OnInit {
     await this.api.deleteMatch(matchID).toPromise().then((response: any) => {
       this.response = JSON.parse(JSON.stringify(response));
       this.refeshTable();
-      this.refeshTable();
       return response;
     }, error => {
       this.error = 'Sorry, an error occurred.';

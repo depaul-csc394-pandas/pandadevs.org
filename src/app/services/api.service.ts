@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ApiService {
-  public endpoint = 'https://cors-anywhere.herokuapp.com/http://veerp.dev:8080';
+  public endpoint = 'http://veerp.dev:8080';
   public apicmd = '/api/matches';
 
   constructor(public http: HttpClient) {
