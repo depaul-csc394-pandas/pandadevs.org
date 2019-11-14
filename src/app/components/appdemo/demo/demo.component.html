@@ -1,0 +1,64 @@
+<!-- START SECTION STORYBOARD -->
+<section id="app">
+<div>
+  <div class="col-md-12 p-0" style="margin-top: 100px">
+    <div class="h-100 text-center justify-content-center">
+      <div class="search-div">
+        <button mat-raised-button class="col-md-2" (click)="onCreateMatch()"><mat-icon>add</mat-icon>Create Match</button>
+        <mat-form-field class="search-form-field col-md-4">
+          <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+          <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <button mat-raised-button class="col-md-2" style="margin-left: 10px" (click)="onCreateTeam()"><mat-icon>add</mat-icon>Create Team</button>
+      </div>
+      <div class="mat-elevation-z8">
+        <mat-table [dataSource]="listData" matSort>
+          <ng-container matColumnDef="sport">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Sport</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.sport}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="team_1">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Team 1</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.team_1_name}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="team_1_score">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Team 1 Score</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.team_1_score}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="team_2">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Team 2</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.team_2_name}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="team_2_score">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Team 2 Score</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.team_2_score}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button (click)="onEditMatch(element)"><mat-icon>launch</mat-icon></button>
+              <button mat-icon-button color="accent" (click)="removeSelected(element.id)">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef>LOADING MATCHES</mat-footer-cell>
+          </ng-container>
+          <ng-container matColumnDef="none">
+            <mat-footer-cell *matFooterCellDef>Check your connection, no data retrieved</mat-footer-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+          <mat-footer-row *matFooterRowDef="['none']"
+                          [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5,10,25,50,100]" [pageSize]="5"></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

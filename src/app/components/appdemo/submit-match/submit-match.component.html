@@ -1,0 +1,62 @@
+<div class="d-md-flex h-md-100 align-items-center">
+  <div class="col-md-12 p-0 h-md-100">
+    <form [formGroup]="api.matchForm" class="normal-form" (submit)="submit()">
+      <mat-grid-list cols="1" rowHeight="150">
+        <mat-grid-tile>
+          <div class="control-container" style="margin-top: 10px; margin-bottom: 10px">
+            <mat-radio-group formControlName="sport" placeholder="Sport*">
+              <mat-error>This field is mandatory.</mat-error>
+              <ng-container *ngFor="let sport of api.sports">
+                <mat-radio-button value="{{sport.id}}">{{sport.value}}</mat-radio-button>
+              </ng-container>
+            </mat-radio-group>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <mat-grid-list cols="2" rowHeight="150px">
+        <mat-grid-tile>
+          <div class="control-container">
+            <mat-select formControlName="team_1_id" placeholder="Team 1*">
+              <mat-error>This field is mandatory.</mat-error>
+              <mat-option>None</mat-option>
+              <ng-container *ngFor="let team of teams">
+                <mat-option value="{{team.id}}">{{team.team_name}}</mat-option>
+              </ng-container>
+            </mat-select>
+            <mat-form-field>
+              <input formControlName="team_1_score" matInput placeholder="Team 1 Score*">
+              <mat-error>This field is mandatory.</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="control-container">
+            <mat-select formControlName="team_2_id" placeholder="Team 2*">
+              <mat-error>This field is mandatory.</mat-error>
+              <mat-option>None</mat-option>
+              <ng-container *ngFor="let team of teams">
+                <mat-option value="{{team.id}}">{{team.team_name}}</mat-option>
+              </ng-container>
+            </mat-select>
+            <mat-form-field>
+              <input formControlName="team_2_score" matInput placeholder="Team 2 Score*">
+              <mat-error>This field is mandatory.</mat-error>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <mat-grid-list cols="2" rowHeight="50">
+        <mat-grid-tile>
+          <div class="control-container">
+            <button mat-raised-button color="primary" type="submit" [disabled]="api.matchForm.invalid">Submit</button>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="control-container">
+            <button mat-raised-button color="accent" (click)="clear()">Cancel</button>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </div>
+</div>

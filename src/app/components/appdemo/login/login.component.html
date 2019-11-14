@@ -1,0 +1,21 @@
+<div class="d-md-flex h-md-100 align-items-center">
+  <div class="col-md-12 p-0 bg-indigo h-md-100">
+    <form [formGroup]="api.loginForm" class="normal-form" (submit)="submit()">
+      <mat-grid-list cols="1" rowHeight="100">
+        <mat-grid-tile>
+          <mat-form-field>
+            <input formControlName="user" matInput placeholder="UserName*">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="pass" matInput placeholder="Password*" type="password">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" type="submit" [disabled]="api.loginForm.invalid">Submit</button>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </div>
+</div>

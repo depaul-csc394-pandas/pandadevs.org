@@ -1,0 +1,17 @@
+<div class="d-md-flex h-md-100 align-items-center">
+  <div class="col-md-12 p-0 bg-indigo h-md-100">
+    <form [formGroup]="api.teamForm" class="normal-form" (submit)="submit()">
+      <mat-grid-list cols="1" rowHeight="100">
+        <mat-grid-tile>
+          <mat-form-field>
+            <input formControlName="team_name" matInput placeholder="New Team Name*">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" type="submit" [disabled]="api.teamForm.invalid">Submit</button>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </div>
+</div>

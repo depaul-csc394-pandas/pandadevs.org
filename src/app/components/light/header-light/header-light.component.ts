@@ -1,17 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {LoginComponent} from '../../appdemo/login/login.component';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 declare var $: any;
 
 @Component({
   selector: 'app-header-home',
   templateUrl: './header-light.component.html',
-  styleUrls: ['./header-light.component.css']
+  styleUrls: ['./header-light.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class HeaderLightComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
     this.setMenuOverlay();
+  }
+
+  onLogIn() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    this.dialog.open(LoginComponent, dialogConfig);
   }
 
   setMenuOverlay() {
